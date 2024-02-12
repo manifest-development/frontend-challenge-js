@@ -36,10 +36,10 @@ const CreateProviderValue = () => {
   };
 
   const submitAnother = async () => {
-      setIsLoading(true);
-      setUserData(new User());
-      setFormStep(1);
-      setIsLoading(false);
+    setIsLoading(true);
+    setUserData(new User());
+    setFormStep(1);
+    setIsLoading(false);
   };
 
   const confirmForm = () => {

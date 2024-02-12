@@ -13,7 +13,7 @@ function App() {
     confirmForm,
     backToPreviousStep,
     isLoading,
-    submitAnother
+    submitAnother,
   } = useContext(FormContext);
 
   return (

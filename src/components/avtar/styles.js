@@ -7,4 +7,3 @@ export const Avatar = styled.div`
     height: 60px;
     margin: 0px 15px;
 `;
-

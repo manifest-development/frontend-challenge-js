@@ -102,19 +102,22 @@ function FormContent({
           </Flex>
         ) : currentStep === 4 && (
           <Flex flexDirection="column" id="thankyou-page">
-          <Styled.FormHeading>Form Submitted !</Styled.FormHeading>
+            <Styled.FormHeading>Form Submitted !</Styled.FormHeading>
             <Flex flexDirection="column" justifyContent="space-between">
-            <Flex></Flex>
-            <Flex></Flex>
-            <Flex></Flex>
-            <Flex flexDirection="row" justifyContent="end">
-              <Avtar src="https://www.shutterstock.com/image-vector/young-smiling-man-avatar-brown-600nw-2261401207.jpg" ></Avtar>
-              <Messagebox>
-                Hi {localData.name}, thank you for submitting the form.
-                We will check and get back to you within 2 business days.
-              </Messagebox>
-            </Flex>
-            <Flex></Flex>
+              <Flex />
+              <Flex />
+              <Flex />
+              <Flex flexDirection="row" justifyContent="end">
+                <Avtar src="https://www.shutterstock.com/image-vector/young-smiling-man-avatar-brown-600nw-2261401207.jpg" />
+                <Messagebox>
+                  Hi
+                  {' '}
+                  {localData.name}
+                  , thank you for submitting the form.
+                  We will check and get back to you within 2 business days.
+                </Messagebox>
+              </Flex>
+              <Flex />
             </Flex>
             <Button onClick={submitAnother} id="form-resubmission-button">Submit Another</Button>
           </Flex>

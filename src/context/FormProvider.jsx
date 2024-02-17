@@ -26,9 +26,8 @@ const CreateProviderValue = () => {
     try {
       await mockSaveData(userData);
       // ADD THANK YOU PAGE HERE
-      setUserData(new User());
-      setFormStep(1);
       setIsLoading(false);
+      setFormStep(4);
     } catch (e) {
       console.error(e);
     }
@@ -43,6 +42,13 @@ const CreateProviderValue = () => {
     setFormStep((prev) => prev - 1);
   };
 
+  const submitAnother = async () => {
+    setIsLoading(true);
+    setUserData(new User());
+    setFormStep(1);
+    setIsLoading(false);
+  }
+
   return {
     formStep,
     userData,
@@ -51,6 +57,7 @@ const CreateProviderValue = () => {
     confirmForm,
     backToPreviousStep,
     isLoading,
+    submitAnother,
   };
 };
 

@@ -41,7 +41,7 @@ function FormContent({
               label="Annual Income in USD"
               type="text"
               onChange={(e) => updateField('income', e.target.value)}
-              value={localData.income || ''}
+              value={localData.income}
               inputLabelCaption="[Input 0 if you are a student]"
               placeholder="Your income"
               id="input-income"

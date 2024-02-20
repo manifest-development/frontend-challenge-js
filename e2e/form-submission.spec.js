@@ -53,6 +53,14 @@ test('Demo page is loaded', async ({ page }) => {
 
   console.log('Complete form confirmation page');
   // ADD Form Thank you page test here
+  const confirmationMessage = await page.locator('#confirmation-message');
+  await expect(confirmationMessage).toBeInViewport();
+
+  console.log('Start Submit Another');
+  const submitAnotherButton = await page.locator('#submit-another-button');
+  await expect(submitAnotherButton).toBeInViewport();
+  await submitAnotherButton.click();
+  console.log('Submit Another complete');
 
   // Back to form step 1 and form should be reset
   await page.waitForTimeout(3000);

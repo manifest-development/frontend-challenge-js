@@ -94,7 +94,7 @@ function FormContent({
           </Flex>
         ) : (
           currentStep === 4 && (
-            <Flex flexDirection="column" justifyContent="center">
+            <Flex flexDirection="column" justifyContent="center" id="thank-you-page">
               <ChatBubble avatarUrl="https://s3-alpha-sig.figma.com/img/8d3f/0334/c00b93e0e31cc617b3fcd13d247744bb?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UZMDYvb9uoKwDtk6uv7X3wRajGkMnP7V2SZ~cekvlKtIvA1KdK12DTbKuuuvT26l22wOpqbKRWTRO-brHntniem9ytsAAqMUXxq1RhA9YMAsORCfEUa16lXXx8e4Q01by~KsPP~CqBr6H5a2dnOn0nOvLHcXUOdjErtjEraRK8e0jPQPbA2l3M1uJOb4QC-j6dpAtBtz1zRm5g1Iq6Sku-dVSJZA4YfrORWyfR6EgjHe8lIS~Ce5EwajDqTuMU1b65DEIomyvgNKTmHNhcky0IRb7lmToGkIW7r7~rlIDbwMCe~qcA2r9glLVVtDydZ60qH~CK0BmRlhooc2~egdAQ__">
                 {`
                   Hi, ${localData.name}, thank you for submitting

@@ -5,9 +5,10 @@ const CreateProviderValue = () => {
   const [formStep, setFormStep] = useState(1);
   const [userData, setUserData] = useState(new User());
   const [isLoading, setIsLoading] = useState(false);
+  const [showThankYouPage, setShowThankYouPage] = useState(false);
 
   const updateFormStep = (updatedUserData) => {
-    if (updatedUserData.name && updatedUserData.income) {
+    if (updatedUserData.name && (updatedUserData.income || updatedUserData.income === 0)) {
       setFormStep(2);
     }
     if (updatedUserData.education) {
@@ -22,21 +23,25 @@ const CreateProviderValue = () => {
 
   const mockSaveData = async () => new Promise((res) => { setTimeout(res, 1500); });
 
-  const saveAndResetData = async () => {
+  const saveData = async () => {
     try {
       await mockSaveData(userData);
-      // ADD THANK YOU PAGE HERE
-      setUserData(new User());
-      setFormStep(1);
       setIsLoading(false);
+      setShowThankYouPage(true);
     } catch (e) {
       console.error(e);
     }
   };
 
+  const startNewForm = async () => {
+    setShowThankYouPage(false);
+    setUserData(new User());
+    setFormStep(1);
+  };
+
   const confirmForm = () => {
     setIsLoading(true);
-    saveAndResetData();
+    saveData();
   };
 
   const backToPreviousStep = () => {
@@ -51,6 +56,8 @@ const CreateProviderValue = () => {
     confirmForm,
     backToPreviousStep,
     isLoading,
+    showThankYouPage,
+    startNewForm,
   };
 };
 

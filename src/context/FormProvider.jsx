@@ -7,7 +7,8 @@ const CreateProviderValue = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const updateFormStep = (updatedUserData) => {
-    if (updatedUserData.name && updatedUserData.income) {
+    // Handling the issue where user inputs 0 as its income
+    if (updatedUserData.name && (updatedUserData.income ?? 0) >= 0) { 
       setFormStep(2);
     }
     if (updatedUserData.education) {
@@ -25,10 +26,19 @@ const CreateProviderValue = () => {
   const saveAndResetData = async () => {
     try {
       await mockSaveData(userData);
-      // ADD THANK YOU PAGE HERE
-      setUserData(new User());
-      setFormStep(1);
       setIsLoading(false);
+      setFormStep(4); // Redirecting to form 4 after the user clicks submit button
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  // Solving issue 3 where we redirect to Form 1 after user clicks on Submit another.
+  const redirectToForm1 = () => {
+    try {
+      setUserData(new User()); // clearing the previous user's data
+      setIsLoading(false); // Setting the loading symbol to false
+      setFormStep(1); // Redirecting to form 1
     } catch (e) {
       console.error(e);
     }
@@ -37,6 +47,11 @@ const CreateProviderValue = () => {
   const confirmForm = () => {
     setIsLoading(true);
     saveAndResetData();
+  };
+
+  const thankyouForm = () => {
+    setIsLoading(true);
+    redirectToForm1();
   };
 
   const backToPreviousStep = () => {
@@ -49,6 +64,7 @@ const CreateProviderValue = () => {
     setUserData,
     updateUserData,
     confirmForm,
+    thankyouForm,
     backToPreviousStep,
     isLoading,
   };

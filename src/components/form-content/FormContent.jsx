@@ -7,7 +7,7 @@ import Input from '../input';
 import * as Styled from './styles';
 
 function FormContent({
-  currentStep, updateUserData, userData, confirmForm, backToPreviousStep,
+  currentStep, updateUserData, userData, confirmForm, thankyouForm, backToPreviousStep,
 }) {
   const [localData, setLocalData] = useState(userData);
 
@@ -68,29 +68,44 @@ function FormContent({
             />
             <Button onClick={submitForm} id="form-step-2-next">Next</Button>
           </Flex>
-        ) : (
-          currentStep === 3 && (
-            <Flex flexDirection="column" id="confirmation-page">
-              <Styled.FormHeading>Confirmation</Styled.FormHeading>
+        ) : currentStep === 3 ? (
+          <Flex flexDirection="column" id="confirmation-page">
+            <Styled.FormHeading>Confirmation</Styled.FormHeading>
+            <Flex flexDirection="column" justifyContent="flex-start">
+              <Styled.LineParagraph id="confirmation-name">
+                <span>Name</span>
+                :
+                <strong>{localData.name}</strong>
+              </Styled.LineParagraph>
+              <Styled.LineParagraph id="confirmation-income">
+                <span>Income</span>
+                :
+                <strong>{localData.income}</strong>
+              </Styled.LineParagraph>
+              <Styled.LineParagraph id="confirmation-education">
+                <span>Education</span>
+                :
+                <strong>{localData.education}</strong>
+              </Styled.LineParagraph>
+            </Flex>
+            <Button onClick={backToPreviousStep} invert id="form-confirmation-back-button">Back</Button>
+            <Button onClick={confirmForm} id="form-confirmation-button">Confirm</Button>
+          </Flex>
+        // )
+        ) : ( // Adding the Thank you Page
+          currentStep === 4 && (
+            <Flex flexDirection="column" id="thankyou-page">
+              <Styled.FormHeading>Thank You</Styled.FormHeading>
               <Flex flexDirection="column" justifyContent="flex-start">
-                <Styled.LineParagraph id="confirmation-name">
-                  <span>Name</span>
-                  :
-                  <strong>{localData.name}</strong>
-                </Styled.LineParagraph>
-                <Styled.LineParagraph id="confirmation-income">
-                  <span>Income</span>
-                  :
-                  <strong>{localData.income}</strong>
-                </Styled.LineParagraph>
-                <Styled.LineParagraph id="confirmation-education">
-                  <span>Education</span>
-                  :
-                  <strong>{localData.education}</strong>
+                <Styled.LineParagraph id="thankyou-name">
+                  Hi
+                  {' '}
+                  {localData.name}
+                  , thank you for submitting the form. We will check and get back to
+                  you within 2 business days.
                 </Styled.LineParagraph>
               </Flex>
-              <Button onClick={backToPreviousStep} invert id="form-confirmation-back-button">Back</Button>
-              <Button onClick={confirmForm} id="form-confirmation-button">Confirm</Button>
+              <Button onClick={thankyouForm} id="thankyou-confirmation-button">SUBMIT ANOTHER</Button>
             </Flex>
           )
         )}

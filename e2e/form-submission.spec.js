@@ -54,6 +54,17 @@ test('Demo page is loaded', async ({ page }) => {
   console.log('Complete form confirmation page');
   // ADD Form Thank you page test here
 
+  console.log('Start thank you page');
+  const thankyouPage = await page.locator('#thankyou-page');    // Testcase to validate if the thank you page is loading
+  await expect(thankyouPage).toBeInViewport();
+  
+  const thankyouName = await page.locator('#thankyou-name');    // Testcase to validate if the user name is same. 
+  await expect(thankyouName).toContainText(testName);  
+
+  const submitAnother = await page.locator('#thankyou-confirmation-button');   // Redirecting to form 1
+  await submitAnother.click(); 
+
+  console.log('Compete Thank you page');
   // Back to form step 1 and form should be reset
   await page.waitForTimeout(3000);
   const form1Input = await page.locator('#input-name');

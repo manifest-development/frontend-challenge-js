@@ -15,23 +15,25 @@ function App() {
     backToPreviousStep,
     isLoading,
     showThankYouPage,
+    startNewForm,
   } = useContext(FormContext);
 
   return (
     <div className="app">
       {isLoading && <FullPageLoader />}
-      {showThankYouPage ? (<ThankYouPage />) : (
-        <>
-          <FormNavBar currentStep={formStep} />
-          <FormContent
-            currentStep={formStep}
-            updateUserData={updateUserData}
-            userData={userData}
-            confirmForm={confirmForm}
-            backToPreviousStep={backToPreviousStep}
-          />
-        </>
-      ) }
+      {showThankYouPage
+        ? (<ThankYouPage startNewForm={startNewForm} name={userData.name} />) : (
+          <>
+            <FormNavBar currentStep={formStep} />
+            <FormContent
+              currentStep={formStep}
+              updateUserData={updateUserData}
+              userData={userData}
+              confirmForm={confirmForm}
+              backToPreviousStep={backToPreviousStep}
+            />
+          </>
+        ) }
     </div>
   );
 }

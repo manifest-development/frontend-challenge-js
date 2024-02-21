@@ -7,7 +7,7 @@ function ThankYouPage({ startNewForm, name }) {
       <div className="thank-you-container">
         <p>
           Hi, thank you
-          { ' '}
+          { ' ' }
           { name }
           , for submitting the form.
           We will check and get back to you within 2 business days.

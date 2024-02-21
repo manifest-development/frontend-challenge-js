@@ -23,7 +23,7 @@ const CreateProviderValue = () => {
 
   const mockSaveData = async () => new Promise((res) => { setTimeout(res, 1500); });
 
-  const saveAndResetData = async () => {
+  const saveData = async () => {
     try {
       await mockSaveData(userData);
       setIsLoading(false);
@@ -41,7 +41,7 @@ const CreateProviderValue = () => {
 
   const confirmForm = () => {
     setIsLoading(true);
-    saveAndResetData();
+    saveData();
   };
 
   const backToPreviousStep = () => {

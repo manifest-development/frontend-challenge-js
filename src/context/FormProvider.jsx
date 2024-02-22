@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
 import { User } from '../class/user';
+import convertNumber from '../utils/convertNumber';
 
 const CreateProviderValue = () => {
   const [formStep, setFormStep] = useState(1);
@@ -7,7 +8,7 @@ const CreateProviderValue = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const updateFormStep = (updatedUserData) => {
-    if (updatedUserData.name && updatedUserData.income) {
+    if (updatedUserData.name && (convertNumber(updatedUserData.income)) >= 0) {
       setFormStep(2);
     }
     if (updatedUserData.education) {

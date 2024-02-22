@@ -96,7 +96,7 @@ function FormContent({
 
           )
             : currentStep === 4 && (
-
+            <Styled.ThankYouPage>
               <Flex id="submitAgain-page" flexDirection="column" justifyContent="flex-start">
                 <Container style={{
                   fontFamily: 'inherit', fontSize: '20px', lineHeight: '36px',
@@ -124,7 +124,7 @@ function FormContent({
 
                 <Button onClick={submitAnother} id="form-submit-another-button" style={{ marginTop: '50px' }}>SUBMIT ANOTHER</Button>
               </Flex>
-
+            </Styled.ThankYouPage>
             )}
       </Styled.FormContentDiv>
     </Container>

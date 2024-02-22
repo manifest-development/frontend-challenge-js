@@ -32,3 +32,8 @@ export const LineParagraph = styled.p`
     font-weight: 600;
   }
 `;
+
+// Add thank you page styles here
+export const ThankYouPage = styled.div`
+
+`;

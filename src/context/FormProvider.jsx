@@ -28,17 +28,21 @@ const CreateProviderValue = () => {
       await mockSaveData(userData);
       // ADD THANK YOU PAGE HERE
       setFormStep(4);
-      // setUserData(new User());
-      // setFormStep(1);
-      // setIsLoading(false);
     } catch (e) {
       console.error(e);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const confirmForm = () => {
     setIsLoading(true);
     saveAndResetData();
+  };
+
+  const resetForm = () => {
+    setUserData(new User());
+    setFormStep(1);
   };
 
   const backToPreviousStep = () => {
@@ -53,6 +57,7 @@ const CreateProviderValue = () => {
     confirmForm,
     backToPreviousStep,
     isLoading,
+    resetForm,
   };
 };
 

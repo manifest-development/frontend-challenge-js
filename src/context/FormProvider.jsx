@@ -27,9 +27,10 @@ const CreateProviderValue = () => {
     try {
       await mockSaveData(userData);
       // ADD THANK YOU PAGE HERE
-      setUserData(new User());
-      setFormStep(1);
-      setIsLoading(false);
+      setFormStep(4);
+      // setUserData(new User());
+      // setFormStep(1);
+      // setIsLoading(false);
     } catch (e) {
       console.error(e);
     }

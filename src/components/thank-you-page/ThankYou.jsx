@@ -8,7 +8,7 @@ const ThankYou = function () {
       <div className="main-container">
         <div className="container">
           <div>
-            <img src={imageSrc} alt="" className="temp" />
+            <img src={imageSrc} alt="" className="image" />
           </div>
           <div className="message">
             <p>

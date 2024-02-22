@@ -96,34 +96,35 @@ function FormContent({
 
           )
             : currentStep === 4 && (
-            <div style={{
-              display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh:',
-            }}
-            >
-              <Container id="submitAgain-page" style={{ position: 'relavtive' }}>
-                <Styled.LineParagraph style={{
-                  display: 'flex', alignItems: 'flex-end', color: 'white', fontFamily: 'inherit', fontSize: '20px', lineHeight: '36px',
+
+              <Flex id="submitAgain-page" flexDirection="column" justifyContent="flex-start">
+                <Container style={{
+                  fontFamily: 'inherit', fontSize: '20px', lineHeight: '36px',
                 }}
                 >
-                  <div style={{ marginRight: '20px' }}>
-                    <img src={ThankYouImage} style={{ width: '50px', height: 'auto' }} alt="" />
-                  </div>
-                  <div style={{
-                    backgroundColor: '#7B876D', padding: '10px', borderRadius: '20px', opacity: '.8',
-                  }}
-                  >
-                    Hi,
-                    {' '}
-                    {localData.name}
-                    {' '}
-                    thank you for submitting the form.
-                    We will check and get back to you within 2 business days.
-                  </div>
-                </Styled.LineParagraph>
+                  <Flex>
+                    <div style={{ marginRight: '20px' }}>
+
+                      <img src={ThankYouImage} style={{ width: '50px', height: 'auto' }} alt="" />
+                    </div>
+                    <div style={{
+                      backgroundColor: '#7B876D', padding: '10px', borderRadius: '20px', opacity: '.8', color: 'white',
+                    }}
+                    >
+                      Hi,
+                      {' '}
+                      {localData.name}
+                      {' '}
+                      thank you for submitting the form.
+                      We will check and get back to you within 2 business days.
+                    </div>
+                  </Flex>
+
+                </Container>
 
                 <Button onClick={submitAnother} id="form-submit-another-button" style={{ marginTop: '50px' }}>SUBMIT ANOTHER</Button>
-              </Container>
-            </div>
+              </Flex>
+
             )}
       </Styled.FormContentDiv>
     </Container>

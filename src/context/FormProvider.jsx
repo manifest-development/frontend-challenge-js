@@ -7,7 +7,7 @@ const CreateProviderValue = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const updateFormStep = (updatedUserData) => {
-    if (updatedUserData.name && updatedUserData.income >= 0) {
+    if (updatedUserData.name && updatedUserData.income >= 0 && updatedUserData.income !== '') {
       // 0 is a falsy value because the input is type number.
       setFormStep(2);
     }

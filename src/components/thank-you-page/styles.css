@@ -1,0 +1,37 @@
+.main-container {
+    margin-top: 250px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .image {
+        margin: 0 auto; 
+        margin-bottom: 10px;
+    }
+}
+
+.message {
+    background-color: #7b876dce;
+    color: white;
+    padding: 12px;
+    border-radius: 22px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.image {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    margin-top: 50px;
+}

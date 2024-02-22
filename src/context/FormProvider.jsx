@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
 import { User } from '../class/user';
+import convertNumber from '../utils/convertNumber';
 
 const CreateProviderValue = () => {
   const [formStep, setFormStep] = useState(1);
@@ -7,7 +8,7 @@ const CreateProviderValue = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const updateFormStep = (updatedUserData) => {
-    if (updatedUserData.name && updatedUserData.income) {
+    if (updatedUserData.name && (updatedUserData.user !== '') && (convertNumber(updatedUserData.income)) >= 0) {
       setFormStep(2);
     }
     if (updatedUserData.education) {
@@ -26,17 +27,22 @@ const CreateProviderValue = () => {
     try {
       await mockSaveData(userData);
       // ADD THANK YOU PAGE HERE
-      setUserData(new User());
-      setFormStep(1);
-      setIsLoading(false);
+      setFormStep(4);
     } catch (e) {
       console.error(e);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const confirmForm = () => {
     setIsLoading(true);
     saveAndResetData();
+  };
+
+  const resetForm = () => {
+    setUserData(new User());
+    setFormStep(1);
   };
 
   const backToPreviousStep = () => {
@@ -51,6 +57,7 @@ const CreateProviderValue = () => {
     confirmForm,
     backToPreviousStep,
     isLoading,
+    resetForm,
   };
 };
 

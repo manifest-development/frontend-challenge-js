@@ -1,15 +1,21 @@
-import convertNumber from '../utils/convertNumber';
+import convertNumber from "../utils/convertNumber";
 
 export class User {
-  name = '';
+  name = "";
 
   income = 0;
 
-  education = '';
+  education = "";
 
   constructor(params) {
-    this.name = params ? params.name ? params.name : '' : '';
-    this.income = params ? params.income ? convertNumber(params.income) : 0 : 0;
-    this.education = params ? params.education : '';
+    // console.log(params);
+    this.name = params ? (params.name ? params.name : "") : "";
+    this.income = params
+      ? params.income
+        ? convertNumber(params.income)
+        : 0
+      : 0;
+    // console.log("Here", this.name, this.income);
+    this.education = params ? params.education : "";
   }
 }

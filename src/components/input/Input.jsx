@@ -1,4 +1,4 @@
-import * as Styled from './styles';
+import * as Styled from "./styles";
 
 function Input({
   type,
@@ -9,13 +9,11 @@ function Input({
   id,
   ...inputProps
 }) {
-  if (type === 'select') {
+  if (type === "select") {
     return (
       <Styled.InputWrapper>
         <label htmlFor={id}>
-          {label}
-          {' '}
-          {inputLabelCaption && <span>{inputLabelCaption}</span>}
+          {label} {inputLabelCaption && <span>{inputLabelCaption}</span>}
         </label>
         <Styled.InputDiv>
           <select onChange={onChange} value={value} id={id}>
@@ -33,9 +31,7 @@ function Input({
   return (
     <Styled.InputWrapper>
       <label htmlFor={id}>
-        {label}
-        {' '}
-        {inputLabelCaption && <span>{inputLabelCaption}</span>}
+        {label} {inputLabelCaption && <span>{inputLabelCaption}</span>}
       </label>
       <Styled.InputDiv>
         <input

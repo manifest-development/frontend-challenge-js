@@ -5,7 +5,8 @@ import Flex from '../../layout/flex';
 import Button from '../button';
 import Input from '../input';
 import * as Styled from './styles';
-import ThankYouImage from '../../assets/katie.png';
+import ThankYouImageSrc from '../../assets/katie.png';
+import { ThankYouImage, ThankYouPage, ThankYouText, ThankYouPageBody } from './styles';
 
 function FormContent({
   currentStep, updateUserData, userData, confirmForm, backToPreviousStep, submitAnother,
@@ -96,35 +97,22 @@ function FormContent({
 
           )
             : currentStep === 4 && (
-            <Styled.ThankYouPage>
-              <Flex id="submitAgain-page" flexDirection="column" justifyContent="flex-start">
-                <Container style={{
-                  fontFamily: 'inherit', fontSize: '20px', lineHeight: '36px',
-                }}
-                >
-                  <Flex>
-                    <div style={{ marginRight: '20px' }}>
-
-                      <img src={ThankYouImage} style={{ width: '50px', height: 'auto' }} alt="" />
-                    </div>
-                    <div style={{
-                      backgroundColor: '#7B876D', padding: '10px', borderRadius: '20px', opacity: '.8', color: 'white',
-                    }}
-                    >
+              <ThankYouPage>
+                <Flex id="submitAgain-page" flexDirection="column" justifyContent="flex-start">
+                  <ThankYouPageBody>
+                    <ThankYouImage src={ThankYouImageSrc} alt="" />
+                    <ThankYouText>
                       Hi,
                       {' '}
                       {localData.name}
                       {' '}
                       thank you for submitting the form.
                       We will check and get back to you within 2 business days.
-                    </div>
-                  </Flex>
-
-                </Container>
-
-                <Button onClick={submitAnother} id="form-submit-another-button" style={{ marginTop: '50px' }}>SUBMIT ANOTHER</Button>
-              </Flex>
-            </Styled.ThankYouPage>
+                    </ThankYouText>
+                  </ThankYouPageBody>
+                  <Button onClick={submitAnother} id="form-submit-another-button" style={{ marginTop: '50px' }}>SUBMIT ANOTHER</Button>
+                </Flex>
+              </ThankYouPage>
             )}
       </Styled.FormContentDiv>
     </Container>

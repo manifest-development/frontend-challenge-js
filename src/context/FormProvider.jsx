@@ -7,7 +7,8 @@ const CreateProviderValue = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const updateFormStep = (updatedUserData) => {
-    if (updatedUserData.name && updatedUserData.income) {
+    if (updatedUserData.name && updatedUserData.income >= 0 && updatedUserData.income !== '') {
+      // 0 is a falsy value because the input is type number.
       setFormStep(2);
     }
     if (updatedUserData.education) {
@@ -20,14 +21,16 @@ const CreateProviderValue = () => {
     setUserData(updatedUserData);
   };
 
-  const mockSaveData = async () => new Promise((res) => { setTimeout(res, 1500); });
+  const mockSaveData = async () => new Promise((res) => {
+    setTimeout(res, 1500);
+  });
 
   const saveAndResetData = async () => {
     try {
       await mockSaveData(userData);
       // ADD THANK YOU PAGE HERE
-      setUserData(new User());
-      setFormStep(1);
+
+      setFormStep(4);
       setIsLoading(false);
     } catch (e) {
       console.error(e);
@@ -37,6 +40,11 @@ const CreateProviderValue = () => {
   const confirmForm = () => {
     setIsLoading(true);
     saveAndResetData();
+  };
+
+  const submitAnother = () => {
+    setUserData(new User());
+    setFormStep(1);
   };
 
   const backToPreviousStep = () => {
@@ -50,6 +58,7 @@ const CreateProviderValue = () => {
     updateUserData,
     confirmForm,
     backToPreviousStep,
+    submitAnother,
     isLoading,
   };
 };

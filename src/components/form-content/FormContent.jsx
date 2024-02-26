@@ -5,9 +5,11 @@ import Flex from '../../layout/flex';
 import Button from '../button';
 import Input from '../input';
 import * as Styled from './styles';
+import ThankYouImageSrc from '../../assets/katie.png';
+import { ThankYouImage, ThankYouPage, ThankYouText, ThankYouPageBody } from './styles';
 
 function FormContent({
-  currentStep, updateUserData, userData, confirmForm, backToPreviousStep,
+  currentStep, updateUserData, userData, confirmForm, backToPreviousStep, submitAnother,
 }) {
   const [localData, setLocalData] = useState(userData);
 
@@ -68,8 +70,8 @@ function FormContent({
             />
             <Button onClick={submitForm} id="form-step-2-next">Next</Button>
           </Flex>
-        ) : (
-          currentStep === 3 && (
+        )
+          : currentStep === 3 ? (
             <Flex flexDirection="column" id="confirmation-page">
               <Styled.FormHeading>Confirmation</Styled.FormHeading>
               <Flex flexDirection="column" justifyContent="flex-start">
@@ -92,8 +94,26 @@ function FormContent({
               <Button onClick={backToPreviousStep} invert id="form-confirmation-back-button">Back</Button>
               <Button onClick={confirmForm} id="form-confirmation-button">Confirm</Button>
             </Flex>
+
           )
-        )}
+            : currentStep === 4 && (
+              <ThankYouPage>
+                <Flex id="submitAgain-page" flexDirection="column" justifyContent="flex-start">
+                  <ThankYouPageBody>
+                    <ThankYouImage src={ThankYouImageSrc} alt="" />
+                    <ThankYouText>
+                      Hi,
+                      {' '}
+                      {localData.name}
+                      {' '}
+                      thank you for submitting the form.
+                      We will check and get back to you within 2 business days.
+                    </ThankYouText>
+                  </ThankYouPageBody>
+                  <Button onClick={submitAnother} id="form-submit-another-button" style={{ marginTop: '50px' }}>SUBMIT ANOTHER</Button>
+                </Flex>
+              </ThankYouPage>
+            )}
       </Styled.FormContentDiv>
     </Container>
   );

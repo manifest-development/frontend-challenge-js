@@ -28,5 +28,6 @@ module.exports = {
     "no-nested-ternary": "off",
     "react/jsx-filename-extension": "off",
     "linebreak-style": "off",
+    quotes: "off",
   },
 };

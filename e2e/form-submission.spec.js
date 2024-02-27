@@ -9,26 +9,26 @@ test('Demo page is loaded', async ({ page }) => {
 
   // Form step 1
   console.log('Start form step 1');
-  const nameInput = await page.locator('#input-name');
+  const nameInput = page.locator('#input-name');
   await expect(nameInput).toBeInViewport();
   await nameInput.fill(testName);
 
-  const incomeInput = await page.locator('#input-income');
+  const incomeInput = page.locator('#input-income');
   await expect(incomeInput).toBeInViewport();
   await incomeInput.fill(testIncome);
 
-  const nextButton = await page.locator('#form-step-1-next');
+  const nextButton = page.locator('#form-step-1-next');
   await nextButton.click();
 
   console.log('Complete form step 1');
   // Form step 2
   console.log('Start form step 2');
 
-  const educationInput = await page.locator('#input-education');
+  const educationInput = page.locator('#input-education');
   await expect(educationInput).toBeInViewport();
   await educationInput.selectOption(testEducation);
 
-  const step2Button = await page.locator('#form-step-2-next');
+  const step2Button = page.locator('#form-step-2-next');
   await expect(step2Button).toBeInViewport();
   await step2Button.click();
 
@@ -36,28 +36,33 @@ test('Demo page is loaded', async ({ page }) => {
 
   // Form step 3
   console.log('Start form confirmation page');
-  const confirmationPage = await page.locator('#confirmation-page');
+  const confirmationPage = page.locator('#confirmation-page');
   await expect(confirmationPage).toBeInViewport();
 
-  const name = await page.locator('#confirmation-name');
+  const name = page.locator('#confirmation-name');
   await expect(name).toContainText(testName);
 
-  const income = await page.locator('#confirmation-income');
+  const income = page.locator('#confirmation-income');
   await expect(income).toContainText(testIncome);
 
-  const education = await page.locator('#confirmation-education');
+  const education = page.locator('#confirmation-education');
   await expect(education).toContainText(testEducation);
 
-  const confirmButton = await page.locator('#form-confirmation-button');
+  const confirmButton = page.locator('#form-confirmation-button');
   await confirmButton.click();
 
   console.log('Complete form confirmation page');
   // ADD Form Thank you page test here
-
+  console.log('Start for Thank you page');
+  const thankYouPage = page.locator('#thankyou-page');
+  await expect(thankYouPage).toBeInViewport();
+  const NewForm = page.locator('#new-form-button');
+  await NewForm.click();
+  console.log('Complete Thank you page');
   // Back to form step 1 and form should be reset
   await page.waitForTimeout(3000);
-  const form1Input = await page.locator('#input-name');
+  const form1Input = page.locator('#input-name');
   const nameInputValie = await form1Input.inputValue();
   await expect(form1Input).toBeInViewport();
-  await expect(nameInputValie).toBe('');
+  expect(nameInputValie).toBe('');
 });

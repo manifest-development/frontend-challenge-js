@@ -29,6 +29,7 @@ module.exports = {
     'no-restricted-exports': 'off',
     'no-nested-ternary': 'off',
     'react/jsx-filename-extension': 'off',
+    'linebreak-style': 0
   },
 
 };

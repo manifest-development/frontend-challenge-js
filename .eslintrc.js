@@ -30,5 +30,6 @@ module.exports = {
     "linebreak-style": "off",
     quotes: "off",
     "react/jsx-one-expression-per-line": "off",
+    "comma-dangle": "off",
   },
 };

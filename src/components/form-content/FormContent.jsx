@@ -5,6 +5,7 @@ import Flex from "../../layout/flex";
 import Button from "../button";
 import Input from "../input";
 import * as Styled from "./styles";
+import convertNumber from "../../utils/convertNumber";
 
 function FormContent({
   currentStep,
@@ -21,6 +22,7 @@ function FormContent({
 
   const submitForm = () => {
     updateUserData(new User(localData));
+    currentStep;
   };
 
   const updateField = (key, value) => {

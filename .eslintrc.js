@@ -29,5 +29,6 @@ module.exports = {
     "react/jsx-filename-extension": "off",
     "linebreak-style": "off",
     quotes: "off",
+    "react/jsx-one-expression-per-line": "off",
   },
 };

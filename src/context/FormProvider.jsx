@@ -1,5 +1,5 @@
-import React, { createContext, useState } from 'react';
-import { User } from '../class/user';
+import React, { createContext, useState } from "react";
+import { User } from "../class/user";
 
 const CreateProviderValue = () => {
   const [formStep, setFormStep] = useState(1);
@@ -20,7 +20,10 @@ const CreateProviderValue = () => {
     setUserData(updatedUserData);
   };
 
-  const mockSaveData = async () => new Promise((res) => { setTimeout(res, 1500); });
+  const mockSaveData = async () =>
+    new Promise((res) => {
+      setTimeout(res, 1500);
+    });
 
   const saveAndResetData = async () => {
     try {

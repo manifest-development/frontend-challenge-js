@@ -5,7 +5,6 @@ import Flex from "../../layout/flex";
 import Button from "../button";
 import Input from "../input";
 import * as Styled from "./styles";
-import convertNumber from "../../utils/convertNumber";
 
 function FormContent({
   currentStep,
@@ -15,17 +14,14 @@ function FormContent({
   backToPreviousStep,
 }) {
   const [localData, setLocalData] = useState(userData);
-  const [currentFormStep, setCurrentFormStep] = useState(
-    convertNumber(currentStep)
-  );
 
   useEffect(() => {
     setLocalData(userData);
   }, [userData]);
 
   const submitForm = () => {
-    updateUserData(new User(localData));
-    setCurrentFormStep(currentFormStep + 1);
+    updateUserData(localData);
+    setLocalData(new User());
   };
 
   const updateField = (key, value) => {
@@ -35,7 +31,7 @@ function FormContent({
   return (
     <Container>
       <Styled.FormContentDiv>
-        {currentFormStep === 1 ? (
+        {currentStep === 1 ? (
           <Flex flexDirection="column">
             <Styled.FormHeading>Basic Information</Styled.FormHeading>
             <Input
@@ -60,7 +56,7 @@ function FormContent({
               Next
             </Button>
           </Flex>
-        ) : currentFormStep === 2 ? (
+        ) : currentStep === 2 ? (
           <Flex flexDirection="column">
             <Styled.FormHeading>Education Level</Styled.FormHeading>
             <Input
@@ -82,7 +78,7 @@ function FormContent({
             </Button>
           </Flex>
         ) : (
-          currentFormStep === 3 && (
+          currentStep === 3 && (
             <Flex flexDirection="column" id="confirmation-page">
               <Styled.FormHeading>Confirmation</Styled.FormHeading>
               <Flex flexDirection="column" justifyContent="flex-start">

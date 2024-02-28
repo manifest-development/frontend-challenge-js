@@ -22,6 +22,7 @@ export default function Popup({ name, setSubmitAnother }) {
           onClick={() => {
             setSubmitAnother(true);
           }}
+          id="submit-another-button"
         >
           Submit Another
         </Button>

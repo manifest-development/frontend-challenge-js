@@ -9,7 +9,15 @@ export class User {
 
   constructor(params) {
     this.name = params ? params.name ? params.name : '' : '';
-    this.income = params ? params.income ? convertNumber(params.income) : 0 : 0;
-    this.education = params ? params.education : '';
+    //This will handle the zero value entered
+    if (params && params.income !== undefined && params.income !== null){
+      thid.income=convertNumber(params.income);
+    } else {
+      this.income=0;
+    }
+    
+    this.education = params && params.education ? params.education : '';
   }
 }
+
+

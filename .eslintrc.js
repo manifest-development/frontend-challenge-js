@@ -32,5 +32,6 @@ module.exports = {
     "react/jsx-one-expression-per-line": "off",
     "comma-dangle": "off",
     "implicit-arrow-linebreak": "off",
+    "no-console": "off",
   },
 };

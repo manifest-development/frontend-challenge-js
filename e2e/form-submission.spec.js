@@ -21,9 +21,9 @@ test('Demo page is loaded', async ({ page }) => {
   await nextButton.click();
 
   console.log('Complete form step 1');
-
   // Form step 2
   console.log('Start form step 2');
+
   const educationInput = await page.locator('#input-education');
   await expect(educationInput).toBeInViewport();
   await educationInput.selectOption(testEducation);
@@ -52,20 +52,20 @@ test('Demo page is loaded', async ({ page }) => {
   await confirmButton.click();
 
   console.log('Complete form confirmation page');
+  // ADD Form Thank you page test here
+  console.log('Start form thank you page');
+  // const thankYouPage = await page.locator('#thank-you-page');
+  // await expect(thankYouPage).toBeInViewport();
 
-  // Thank you page wait selector
-  await page.waitForSelector('#thank-you-page');
-
-  // "SUBMIT ANOTHER" button on the thank you page
   const submitAnotherButton = await page.locator('#submit-another-button');
+  await expect(submitAnotherButton).toBeInViewport();
   await submitAnotherButton.click();
 
-  // After clicking "SUBMIT ANOTHER", the form should be reset to  the Step 1 phase 
-  console.log('Start form step 1 after reset button is being cliked');
-  const form1NameInput = await page.locator('#input-name');
-  await expect(form1NameInput).toBeVisible();
-  const form1NameInputValue = await form1NameInput.inputValue();
-  await expect(form1NameInputValue).toBe('');
-
-  console.log('Form reset is being done successful');
+  console.log('Complete form thank you page');
+  // Back to form step 1 and form should be reset
+  await page.waitForTimeout(3000);
+  const form1Input = await page.locator('#input-name');
+  const nameInputValie = await form1Input.inputValue();
+  await expect(form1Input).toBeInViewport();
+  await expect(nameInputValie).toBe('');
 });

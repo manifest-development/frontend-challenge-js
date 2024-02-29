@@ -15,10 +15,11 @@ function App() {
     isLoading,
   } = useContext(FormContext);
 
-  return (
+return (
     <div className="app">
       {isLoading && <FullPageLoader />}
       <FormNavBar currentStep={formStep} />
+      {formStep !== 4 && <FormNavBar currentStep={formStep} /> }
       <FormContent
         currentStep={formStep}
         updateUserData={updateUserData}

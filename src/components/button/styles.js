@@ -6,14 +6,14 @@ export const Button = styled.button`
 cursor:pointer;
 text-transform: uppercase;
 letter-spacing: 2px;
-font-size: 15px;
+font-size: 20px;
 font-family:inherit;
-line-height: 15px;
+line-height: 36px;
 display:block;
-width: 20;
-height:30px;
-border-radius: 20px;
-margin-bottom: 20px;
+width: 50%;
+height:40px;
+border-radius: 10px;
+margin-bottom: 10px;
 
 background: ${(props) => (props.$invert ? 'transparent' : buttonPrimaryColor)};
 border: 2px solid ${buttonPrimaryColor};

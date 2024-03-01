@@ -8,7 +8,7 @@ const CreateProviderValue = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const updateFormStep = (updatedUserData) => {
-    if (updatedUserData.name && updatedUserData.income !== undefined) {
+    if (updatedUserData.name && updatedUserData.income !== undefined && updatedUserData.income !== null && updatedUserData.income !== '') {
       setFormStep(2);
     }
     if (updatedUserData.education) {
@@ -39,7 +39,7 @@ const CreateProviderValue = () => {
 
   const confirmForm = () => {
     setIsLoading(true);
-    saveAndResetData(1);
+    saveAndResetData();
   };
 
   const backToPreviousStep = () => {
@@ -81,6 +81,7 @@ const CreateProviderValue = () => {
     setFormSubmitted,
     formSubmitted,
     resetFormPage,
+
   };
 };
 

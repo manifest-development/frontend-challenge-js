@@ -16,6 +16,14 @@ function FormContent({
   }, [userData]);
 
   const submitForm = () => {
+    if (currentStep === 1 && (!localData.income || localData.income.trim() === '')) {
+      alert('Please enter your income.');
+      return;
+    }
+    if (currentStep === 1 && (!localData.name || localData.name.trim() === '')) {
+      alert('Please enter your name.');
+      return;
+    }
     updateUserData(new User(localData));
   };
 
@@ -46,7 +54,6 @@ function FormContent({
               placeholder="Your income"
               id="input-income"
             />
-
             <Button onClick={submitForm} id="form-step-1-next">Next</Button>
           </Flex>
         ) : currentStep === 2 ? (

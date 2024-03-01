@@ -53,7 +53,23 @@ test('Demo page is loaded', async ({ page }) => {
 
   console.log('Complete form confirmation page');
   // ADD Form Thank you page test here
+  console.log('Start thank you page');
+  const thankYouMessage = `Hi, ${testName}, thank you for submitting the form. We will check and get
+  back to you within 2 business days.`;
 
+  const thankYouPage = await page.locator('#thankYou-page');
+  await expect(thankYouPage).toBeInViewport(); 
+
+  const avatar = await page.locator('#profile-image');
+  await expect(thankYouPage).toBeInViewport();
+
+  const message = await page.locator('#thankYou-message');
+  await expect(message).toContainText(thankYouMessage);
+
+  const resetButton = await page.locator('#reset-button');
+  await resetButton.click();
+
+  console.log('Complete thank you page');
   // Back to form step 1 and form should be reset
   await page.waitForTimeout(3000);
   const form1Input = await page.locator('#input-name');

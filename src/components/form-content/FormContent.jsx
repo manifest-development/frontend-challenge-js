@@ -34,17 +34,17 @@ function FormContent({
     <Container>
       <Styled.FormContentDiv>
         {showThankYouPage ? (
-          <Styled.ThankYouContainer>
+          <Styled.ThankYouContainer id="thankYou-page">
             <Styled.MessageContainer>
-              <Styled.UserProfileImage src={userProfileImage} alt="User" />
-              <Styled.ThankYouMessage>
+              <Styled.UserProfileImage src={userProfileImage} alt="User" id="profile-image" />
+              <Styled.ThankYouMessage id="thankYou-message">
                 Hi,&nbsp;
                 {localData.name}
                 , thank you for submitting the form. We will check and get
                 back to you within 2 business days.
               </Styled.ThankYouMessage>
             </Styled.MessageContainer>
-            <Button onClick={handleReset}>
+            <Button onClick={handleReset} id="reset-button">
               SUBMIT ANOTHER
             </Button>
           </Styled.ThankYouContainer>

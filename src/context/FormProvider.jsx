@@ -9,7 +9,7 @@ const CreateProviderValue = () => {
   const updateFormStep = (updatedUserData) => {
     // modified:
     // User should be able to proceed to step 2 if uesr enter 0
-    if (updatedUserData.name && updatedUserData.income === 0) {
+    if (updatedUserData.name && updatedUserData.income !== null) {
       setFormStep(2);
     }
     if (updatedUserData.education) {

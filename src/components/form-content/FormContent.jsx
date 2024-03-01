@@ -5,9 +5,10 @@ import Flex from '../../layout/flex';
 import Button from '../button';
 import Input from '../input';
 import * as Styled from './styles';
+import userProfileImage from '../../assets/katie.png';
 
 function FormContent({
-  currentStep, updateUserData, userData, confirmForm, backToPreviousStep,
+  currentStep, updateUserData, userData, confirmForm, backToPreviousStep, showThankYouPage,
 }) {
   const [localData, setLocalData] = useState(userData);
 
@@ -23,10 +24,31 @@ function FormContent({
     setLocalData({ ...localData, [key]: value });
   };
 
+  const handleReset = () => {
+    setLocalData(new User()); // Reset the form data
+    updateUserData(new User()); // Reset userData in context if needed
+    backToPreviousStep();
+  };
+
   return (
     <Container>
       <Styled.FormContentDiv>
-        {currentStep === 1 ? (
+        {showThankYouPage ? (
+          <Styled.ThankYouContainer id="thankYou-page">
+            <Styled.MessageContainer>
+              <Styled.UserProfileImage src={userProfileImage} alt="User" id="profile-image" />
+              <Styled.ThankYouMessage id="thankYou-message">
+                Hi,&nbsp;
+                {localData.name}
+                , thank you for submitting the form. We will check and get
+                back to you within 2 business days.
+              </Styled.ThankYouMessage>
+            </Styled.MessageContainer>
+            <Button onClick={handleReset} id="reset-button">
+              SUBMIT ANOTHER
+            </Button>
+          </Styled.ThankYouContainer>
+        ) : currentStep === 1 ? (
           <Flex flexDirection="column">
             <Styled.FormHeading>Basic Information</Styled.FormHeading>
             <Input

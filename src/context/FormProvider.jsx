@@ -5,6 +5,8 @@ const CreateProviderValue = () => {
   const [formStep, setFormStep] = useState(1);
   const [userData, setUserData] = useState(new User());
   const [isLoading, setIsLoading] = useState(false);
+  // New state for showing the thank you page
+  const [showThankYouPage, setShowThankYouPage] = useState(false);
 
   const updateFormStep = (updatedUserData) => {
     // modified:
@@ -28,8 +30,9 @@ const CreateProviderValue = () => {
     try {
       await mockSaveData(userData);
       // ADD THANK YOU PAGE HERE
-      setUserData(new User());
-      setFormStep(1);
+      setShowThankYouPage(true);
+      // setUserData(new User());
+      // setFormStep(1);
       setIsLoading(false);
     } catch (e) {
       console.error(e);
@@ -42,7 +45,12 @@ const CreateProviderValue = () => {
   };
 
   const backToPreviousStep = () => {
-    setFormStep((prev) => prev - 1);
+    if (showThankYouPage) {
+      setShowThankYouPage(false);
+      setFormStep(1);
+    } else {
+      setFormStep((prev) => prev - 1);
+    }
   };
 
   return {
@@ -53,6 +61,8 @@ const CreateProviderValue = () => {
     confirmForm,
     backToPreviousStep,
     isLoading,
+    showThankYouPage,
+    setFormStep,
   };
 };
 

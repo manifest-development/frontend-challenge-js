@@ -5,6 +5,7 @@ import Flex from '../../layout/flex';
 import Button from '../button';
 import Input from '../input';
 import * as Styled from './styles';
+import avatarImage from '../../assets/katie.png';
 
 function FormContent({
   currentStep, updateUserData, userData, confirmForm, backToPreviousStep, resetForm,
@@ -93,13 +94,18 @@ function FormContent({
             <Button onClick={confirmForm} id="form-confirmation-button">Confirm</Button>
           </Flex>
         ) : currentStep === 4 && (
-          <Flex flexDirection="column">
-            <Styled.LineParagraph>
-              Hi,
-              {localData.name}
-              , thank you for submitting the form.
-              We will check and get back to you within 2 business days.
-            </Styled.LineParagraph>
+          <Flex flexDirection="column" justifyContent="center">
+            <Styled.ThankYouBox>
+              <Styled.AvatarImage src={avatarImage} alt="User Avatar" />
+              <Styled.MessageBox>
+                <Styled.ThankYouMessage>
+                  Hi,
+                  {localData.name}
+                  , thank you for submitting the form.
+                  We will check and get back to you within 2 business days.
+                </Styled.ThankYouMessage>
+              </Styled.MessageBox>
+            </Styled.ThankYouBox>
             <Button onClick={resetForm} id="submit-another-button">SUBMIT ANOTHER</Button>
           </Flex>
         )}

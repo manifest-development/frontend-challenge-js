@@ -94,11 +94,11 @@ function FormContent({
             <Button onClick={confirmForm} id="form-confirmation-button">Confirm</Button>
           </Flex>
         ) : currentStep === 4 && (
-          <Flex flexDirection="column" justifyContent="center">
+          <Flex flexDirection="column" justifyContent="center" id="thankyou-page">
             <Styled.ThankYouBox>
-              <Styled.AvatarImage src={avatarImage} alt="User Avatar" />
+              <Styled.AvatarImage src={avatarImage} alt="User Avatar" id="avatar" />
               <Styled.MessageBox>
-                <Styled.ThankYouMessage>
+                <Styled.ThankYouMessage id="thankyou-message">
                   Hi,
                   {localData.name}
                   , thank you for submitting the form.

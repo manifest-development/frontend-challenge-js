@@ -4,6 +4,9 @@ const testName = 'User A';
 const testIncome = '40000';
 const testEducation = 'High school or equivalent';
 
+// exercise3: dummpy profile image test
+const testProfileImage = 'http://localhost:3000/assets/katie.png';
+
 test('Demo page is loaded', async ({ page }) => {
   await page.goto('http://localhost:3000');
 
@@ -54,8 +57,28 @@ test('Demo page is loaded', async ({ page }) => {
   console.log('Complete form confirmation page');
   // ADD Form Thank you page test here
 
-  // Back to form step 1 and form should be reset
+  // exercise3:
+  console.log('Start Thank you page');
   await page.waitForTimeout(3000);
+  const thankyouPage = await page.locator('#thankyou-page');
+  await expect(thankyouPage).toBeInViewport();
+
+  //test the thank you message text
+  const message = await page.locator('#thankyou-message');
+  await expect(message).toContainText(testName);
+
+  // If the image is dymamic: test the avatar image(depends on the way to store and manage the image in the database, the test may be different. 
+  // Here I use the src attribute to test the image url.)
+  // const avatarSrc = await page.locator('#avatar').getAttribute('src');
+  // expect(avatarSrc).toBe(testProfileImage);
+
+  //test the submit another button
+  const newFormButtom = await page.locator('#submit-another-button');
+  await newFormButtom.click();
+
+  console.log('Complete Thank you page');
+
+  // Back to form step 1 and form should be reset
   const form1Input = await page.locator('#input-name');
   const nameInputValie = await form1Input.inputValue();
   await expect(form1Input).toBeInViewport();

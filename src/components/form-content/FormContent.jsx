@@ -13,10 +13,13 @@ function FormContent({
 
   useEffect(() => {
     setLocalData(userData);
+    console.log(userData);
+    // console.log(currentStep);
   }, [userData]);
 
   const submitForm = () => {
-    updateUserData(new User(localData));
+    // this is in FormProvider
+    updateUserData(new User(localData)); // Object is made/remade when the first submit is made
   };
 
   const updateField = (key, value) => {

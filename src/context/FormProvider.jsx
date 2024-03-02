@@ -17,6 +17,12 @@ const CreateProviderValue = () => {
     }
   };
 
+  // when the Submit Another Button is clicked, the form resets to the first step
+  const resetFormStep = () => {
+    setUserData(new User());
+    setFormStep(1);
+  };
+
   const updateUserData = (updatedUserData) => {
     updateFormStep(updatedUserData);
     setUserData(updatedUserData);
@@ -28,8 +34,7 @@ const CreateProviderValue = () => {
     try {
       await mockSaveData(userData);
       // ADD THANK YOU PAGE HERE
-      setUserData(new User());
-      setFormStep(1);
+      setFormStep(4); // technically I have put the thank you page here (als see resetFormStep)
       setIsLoading(false);
     } catch (e) {
       console.error(e);
@@ -52,6 +57,7 @@ const CreateProviderValue = () => {
     updateUserData,
     confirmForm,
     backToPreviousStep,
+    resetFormStep,
     isLoading,
   };
 };

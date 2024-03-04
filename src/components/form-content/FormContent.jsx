@@ -4,8 +4,9 @@ import Container from '../../layout/container';
 import Flex from '../../layout/flex';
 import Button from '../button';
 import Input from '../input';
+import ThankYouPage from '../thank-you-page';
 import * as Styled from './styles';
-import avatarImage from '../../assets/katie.png';
+// import avatarImage from '../../assets/katie.png';
 
 function FormContent({
   currentStep, updateUserData, userData, confirmForm, backToPreviousStep, resetForm,
@@ -94,20 +95,21 @@ function FormContent({
             <Button onClick={confirmForm} id="form-confirmation-button">Confirm</Button>
           </Flex>
         ) : currentStep === 4 && (
-          <Flex flexDirection="column" justifyContent="center" id="thankyou-page">
-            <Styled.ThankYouBox>
-              <Styled.AvatarImage src={avatarImage} alt="User Avatar" id="avatar" />
-              <Styled.MessageBox>
-                <Styled.ThankYouMessage id="thankyou-message">
-                  Hi,
-                  {localData.name}
-                  , thank you for submitting the form.
-                  We will check and get back to you within 2 business days.
-                </Styled.ThankYouMessage>
-              </Styled.MessageBox>
-            </Styled.ThankYouBox>
-            <Button onClick={resetForm} id="submit-another-button">SUBMIT ANOTHER</Button>
-          </Flex>
+          // <Flex flexDirection="column" justifyContent="center" id="thankyou-page">
+          //   <Styled.ThankYouBox>
+          //     <Styled.AvatarImage src={avatarImage} alt="User Avatar" id="avatar" />
+          //     <Styled.MessageBox>
+          //       <Styled.ThankYouMessage id="thankyou-message">
+          //         Hi,
+          //         {localData.name}
+          //         , thank you for submitting the form.
+          //         We will check and get back to you within 2 business days.
+          //       </Styled.ThankYouMessage>
+          //     </Styled.MessageBox>
+          //   </Styled.ThankYouBox>
+          //   <Button onClick={resetForm} id="submit-another-button">SUBMIT ANOTHER</Button>
+          // </Flex>
+          <ThankYouPage userName={localData.name} onReset={resetForm} />
         )}
       </Styled.FormContentDiv>
     </Container>

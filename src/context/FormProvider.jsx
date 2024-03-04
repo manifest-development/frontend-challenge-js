@@ -7,7 +7,14 @@ const CreateProviderValue = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const updateFormStep = (updatedUserData) => {
-    if (updatedUserData.name && updatedUserData.income) {
+    // step1: condition updatedUserData.income fails when the income is 0
+    // because 0 is falsy in Javascript
+    // solution: change the way to check the value
+    if (updatedUserData.name
+      && updatedUserData.income !== null
+      && updatedUserData.income !== undefined
+      // && typeof updatedUserData.income === 'number'
+    ) {
       setFormStep(2);
     }
     if (updatedUserData.education) {
@@ -26,8 +33,10 @@ const CreateProviderValue = () => {
     try {
       await mockSaveData(userData);
       // ADD THANK YOU PAGE HERE
-      setUserData(new User());
-      setFormStep(1);
+      // setUserData(new User());
+      // setFormStep(1);
+      // step2.1: add a new step for thank you page
+      setFormStep(4);
       setIsLoading(false);
     } catch (e) {
       console.error(e);
@@ -43,6 +52,12 @@ const CreateProviderValue = () => {
     setFormStep((prev) => prev - 1);
   };
 
+  // step2.1: move the form reset function here and remember to return it
+  const resetForm = () => {
+    setUserData(new User());
+    setFormStep(1);
+  };
+
   return {
     formStep,
     userData,
@@ -50,6 +65,7 @@ const CreateProviderValue = () => {
     updateUserData,
     confirmForm,
     backToPreviousStep,
+    resetForm,
     isLoading,
   };
 };

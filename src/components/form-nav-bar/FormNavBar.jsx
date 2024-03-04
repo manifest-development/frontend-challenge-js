@@ -7,6 +7,11 @@ function FormStepItem({ active, done, children }) {
 }
 
 function FormNavBar({ currentStep }) {
+  // step2.3: when on thank you page(step 4), return null(render nothing)
+  if (currentStep === 4) {
+    return null;
+  }
+
   return (
     <Styled.FormNavBar>
       <Container>
@@ -20,7 +25,6 @@ function FormNavBar({ currentStep }) {
           <FormStepItem active={currentStep === 3} done={currentStep >= 3}>
             3
           </FormStepItem>
-
         </Flex>
       </Container>
 

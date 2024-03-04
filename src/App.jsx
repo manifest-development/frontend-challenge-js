@@ -12,6 +12,7 @@ function App() {
     updateUserData,
     confirmForm,
     backToPreviousStep,
+    resetFormStep,
     isLoading,
   } = useContext(FormContext);
 
@@ -25,6 +26,8 @@ function App() {
         userData={userData}
         confirmForm={confirmForm}
         backToPreviousStep={backToPreviousStep}
+        // added function to reset the form; only appears when the form is submitted
+        resetFormStep={resetFormStep}
       />
     </div>
   );

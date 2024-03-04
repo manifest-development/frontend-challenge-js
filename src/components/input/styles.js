@@ -32,10 +32,10 @@ select{
 }`;
 
 export const InputDiv = styled.div`
-border: 1px solid #555;
-width:100%;
-border-radius: 12px;
-height: 45px;
-display:flex;
-align-items:center;
+    border: 1px solid #555;
+    width:100%;
+    border-radius: 12px;
+    height: 45px;
+    display:flex;
+    align-items:center;
 `;

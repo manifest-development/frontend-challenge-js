@@ -8,7 +8,6 @@ const CreateProviderValue = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const updateFormStep = (updatedUserData) => {
-    console.log(updatedUserData.income);
     if (updatedUserData.name && (updatedUserData.income >= 0)) {
       setFormStep(2);
     }

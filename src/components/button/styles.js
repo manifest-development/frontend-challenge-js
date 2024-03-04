@@ -10,7 +10,7 @@ font-size: 20px;
 font-family:inherit;
 line-height: 36px;
 display:block;
-width: 100%;
+width: 50%;
 height:40px;
 border-radius: 10px;
 margin-bottom: 10px;

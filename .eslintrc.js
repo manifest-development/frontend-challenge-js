@@ -16,6 +16,19 @@ module.exports = {
         sourceType: 'script',
       },
     },
+    {
+      files: ['**/*.jsx'], // Add a rule for .jsx files
+      rules: {
+        'import/extensions': [
+          'error',
+          'ignorePackages',
+          {
+            js: 'never',
+            jsx: 'never',
+          },
+        ],
+      },
+    },
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -30,5 +43,4 @@ module.exports = {
     'no-nested-ternary': 'off',
     'react/jsx-filename-extension': 'off',
   },
-
 };

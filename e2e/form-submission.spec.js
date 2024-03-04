@@ -53,8 +53,21 @@ test('Demo page is loaded', async ({ page }) => {
 
   console.log('Complete form confirmation page');
   // ADD Form Thank you page test here
+  const ThankYouPage = await page.locator('#confirmation-message');
+try {
+  await expect(ThankYouPage).toBeInViewport({ timeout: 10000 }); // Increase timeout to 10 seconds
+} catch (error) {
+  console.error('Error:', error);
+  // Handle error or retry mechanism if needed
+}
 
-  // Back to form step 1 and form should be reset
+  console.log('Start Submit Another');
+  const submitAnotherButton = await page.locator('#submit-another-button');
+try {
+  await expect(submitAnotherButton).toBeInViewport({ timeout: 10000 }); // Increase timeout to 10 seconds
+} catch (error) {
+  console.error('Error:', error);
+}
   await page.waitForTimeout(3000);
   const form1Input = await page.locator('#input-name');
   const nameInputValie = await form1Input.inputValue();

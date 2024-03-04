@@ -1,0 +1,88 @@
+/* DESKTOP */
+
+.thank-you-container {
+    position: absolute;
+    width: 1440px;
+    height: 1090px;
+    background: #FFFFFF;
+  }
+  
+  /* katie 1 */
+  
+  .katie {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 200px;
+    top: 300px;
+    background: url('../../assets/katie.png')
+  }
+  
+  /* Rectangle 2 */
+  
+  .rectangle-2 {
+    position: absolute;
+    width: 488px;
+    height: 117px;
+    left: 300px;
+    top: 250px;
+    background: #989E8D;
+    border-radius: 30px;
+  }
+  
+  /* Hi, {user name}, thank you for submitting the form. We will check and get back to you within 2 business days. */
+  
+  .message {
+    position: relative;
+    width: 456px;
+    height: 90px;
+    left: 45px;
+    top: 20px;
+    font-family: 'Gill Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    /* or 125% */
+    color: #111010;
+  }
+  
+  /* Rectangle 3 */
+  
+  .rectangle-3 {
+    position: absolute;
+    width: 400px;
+    height: 40px;
+    left: 350px;
+    top: 400px;
+    background: #7B876D;
+    border-radius: 10px;
+  }
+  
+  /* SUBMIT ANOTHER */
+  .submit-another {
+    position: absolute;
+    width: 168px;
+    height: 30px;
+    left: 470px;
+    top: 410px;
+    font-family: 'Gill Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    /* identical to box height, or 150% */
+    color: #e7dede;
+    background-color: #7B876D;
+    border: 1px solid transparent;
+    z-index: 1;
+    outline: none;
+    cursor: pointer;
+
+  }
+  .submit-another:hover{
+    background-color: #7B876D ;
+    transition: background-color 0.3s;
+  }
+
+  

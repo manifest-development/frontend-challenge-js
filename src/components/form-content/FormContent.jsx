@@ -99,7 +99,7 @@ function FormContent({
         ) : (currentStep === 4 && (
           <Flex flexDirection="column" justifyContent="center" gap="1rem" id="thank-you-page">
             <Styled.PictureMessageWrapper>
-              <img src={katie} alt="Katie" />
+              <img src={katie} alt="Katie" id="thank-you-image" />
               <Styled.LineParagraph id="thank-you-message">
                 <Styled.MessageWrapper>
                   {message}

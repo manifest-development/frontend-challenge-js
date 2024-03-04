@@ -32,3 +32,20 @@ export const LineParagraph = styled.p`
     font-weight: 600;
   }
 `;
+
+export const MessageWrapper = styled.div`
+  color: #FFF;
+  border-radius: 1.25rem;
+  background-color: #7B876D;
+  padding: 1rem;
+`;
+
+export const PictureMessageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  @media screen and (min-width: 768px){
+    flex-direction: row;
+  }
+`;

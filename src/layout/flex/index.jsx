@@ -4,6 +4,7 @@ function Flex({
   flexDirection,
   justifyContent,
   alignItems,
+  gap,
   children,
   ...props
 }) {
@@ -12,6 +13,7 @@ function Flex({
       $flexDirection={flexDirection}
       $justifyContent={justifyContent}
       $alignItems={alignItems}
+      $gap={gap} // gap property for flex containers I added
       {...props}
     >
       {children}

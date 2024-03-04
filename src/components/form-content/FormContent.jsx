@@ -97,11 +97,15 @@ function FormContent({
             <Button onClick={confirmForm} id="form-confirmation-button">Confirm</Button>
           </Flex>
         ) : (currentStep === 4 && (
-          <Flex flexDirection="column" justifyContent="center" id="thank-you-page">
-            <img src={katie} alt="Katie" />
-            <Styled.LineParagraph>
-              {message}
-            </Styled.LineParagraph>
+          <Flex flexDirection="column" justifyContent="center" gap="1rem" id="thank-you-page">
+            <Styled.PictureMessageWrapper>
+              <img src={katie} alt="Katie" />
+              <Styled.LineParagraph id="thank-you-message">
+                <Styled.MessageWrapper>
+                  {message}
+                </Styled.MessageWrapper>
+              </Styled.LineParagraph>
+            </Styled.PictureMessageWrapper>
             <Button onClick={resetFormStep} id="form-reset-button">Submit Another</Button>
           </Flex>
         )

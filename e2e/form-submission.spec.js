@@ -53,6 +53,10 @@ test('Demo page is loaded', async ({ page }) => {
 
   console.log('Complete form confirmation page');
   // ADD Form Thank you page test here
+  const submitAnotherForm = await page.locator('#submit-another-form');
+  await submitAnotherForm.click();
+
+  console.log('Complete thankyou page');
 
   // Back to form step 1 and form should be reset
   await page.waitForTimeout(3000);

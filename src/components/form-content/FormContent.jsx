@@ -6,6 +6,8 @@ import Button from '../button';
 import Input from '../input';
 import * as Styled from './styles';
 
+const nonNegativeNumberRegex = /^\d+(\.\d+)?$/;
+
 function FormContent({
   currentStep, updateUserData, userData, confirmForm, backToPreviousStep,
 }) {
@@ -16,6 +18,9 @@ function FormContent({
   }, [userData]);
 
   const submitForm = () => {
+    // Cannot submit form it user didn't put anything into income input
+    if (!nonNegativeNumberRegex.test(String(localData.income))) return;
+    if (currentStep === 1 && localData.income === 0) return;
     updateUserData(new User(localData));
   };
 

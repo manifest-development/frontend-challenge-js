@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { desktopBreakpoint } from '../../constants';
 
 export const Body = styled.div`
 display:flex;
@@ -9,9 +10,8 @@ justify-content: center;
 align-items: center;
 `;
 
-const threshold = 1024;
-const forDeskTop = `@media only screen and (min-width: ${threshold}px)`;
-const forMobile = `@media only screen and (max-width: ${threshold - 1}px)`;
+const forDeskTop = `@media only screen and (min-width: ${desktopBreakpoint}px)`;
+const forMobile = `@media only screen and (max-width: ${desktopBreakpoint - 1}px)`;
 const imageDiameter = 50;
 
 export const ThankYouWrapper = styled.div`

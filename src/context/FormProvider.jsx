@@ -1,10 +1,11 @@
-import React, { createContext, useState } from 'react';
-import { User } from '../class/user';
+import React, { createContext, useState } from "react";
+import { User } from "../class/user";
 
 const CreateProviderValue = () => {
   const [formStep, setFormStep] = useState(1);
   const [userData, setUserData] = useState(new User());
   const [isLoading, setIsLoading] = useState(false);
+  const [submitAnother, setSubmitAnother] = useState(true);
 
   const updateFormStep = (updatedUserData) => {
     if (updatedUserData.name && updatedUserData.income) {
@@ -20,12 +21,15 @@ const CreateProviderValue = () => {
     setUserData(updatedUserData);
   };
 
-  const mockSaveData = async () => new Promise((res) => { setTimeout(res, 1500); });
+  const mockSaveData = async () =>
+    new Promise((res) => {
+      setTimeout(res, 1500);
+    });
 
   const saveAndResetData = async () => {
     try {
       await mockSaveData(userData);
-      // ADD THANK YOU PAGE HERE
+      setSubmitAnother(false);
       setUserData(new User());
       setFormStep(1);
       setIsLoading(false);
@@ -51,6 +55,8 @@ const CreateProviderValue = () => {
     confirmForm,
     backToPreviousStep,
     isLoading,
+    submitAnother,
+    setSubmitAnother,
   };
 };
 

@@ -3,32 +3,35 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: 'airbnb',
+  extends: "airbnb",
   overrides: [
     {
       env: {
         node: true,
       },
-      files: [
-        '.eslintrc.{js,cjs}',
-      ],
+      files: [".eslintrc.{js,cjs}"],
       parserOptions: {
-        sourceType: 'script',
+        sourceType: "script",
       },
     },
   ],
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
   rules: {
-    'import/prefer-default-export': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/prop-types': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'no-restricted-exports': 'off',
-    'no-nested-ternary': 'off',
-    'react/jsx-filename-extension': 'off',
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-restricted-exports": "off",
+    "no-nested-ternary": "off",
+    "react/jsx-filename-extension": "off",
+    "linebreak-style": "off",
+    quotes: "off",
+    "react/jsx-one-expression-per-line": "off",
+    "comma-dangle": "off",
+    "implicit-arrow-linebreak": "off",
+    "no-console": "off",
   },
-
 };

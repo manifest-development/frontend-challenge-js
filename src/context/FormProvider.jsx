@@ -5,9 +5,13 @@ const CreateProviderValue = () => {
   const [formStep, setFormStep] = useState(1);
   const [userData, setUserData] = useState(new User());
   const [isLoading, setIsLoading] = useState(false);
+  // This state is for the Thank You Form.
+  const [showThankYou, setShowThankYou] = useState(false);
 
   const updateFormStep = (updatedUserData) => {
-    if (updatedUserData.name && updatedUserData.income) {
+    // !Number.isNaN() checks if the input is a number. Presumably, you do not want
+    // form inputs that are not numbers to advance the form step.
+    if (updatedUserData.name && !Number.isNaN(updatedUserData.income)) {
       setFormStep(2);
     }
     if (updatedUserData.education) {
@@ -22,13 +26,19 @@ const CreateProviderValue = () => {
 
   const mockSaveData = async () => new Promise((res) => { setTimeout(res, 1500); });
 
+  // Here is my logic for submitting the form and resetting the form state.
+  // (I took it out of saveAndResetData and put it in its own function
+  // because I only want it called when the user clicks SUBMIT ANOTHER)
+  const submitAnotherForm = () => {
+    setShowThankYou(false);
+    setUserData(new User());
+    setFormStep(1);
+  };
   const saveAndResetData = async () => {
     try {
       await mockSaveData(userData);
-      // ADD THANK YOU PAGE HERE
-      setUserData(new User());
-      setFormStep(1);
       setIsLoading(false);
+      setShowThankYou(true);
     } catch (e) {
       console.error(e);
     }
@@ -51,6 +61,8 @@ const CreateProviderValue = () => {
     confirmForm,
     backToPreviousStep,
     isLoading,
+    showThankYou,
+    submitAnotherForm,
   };
 };
 

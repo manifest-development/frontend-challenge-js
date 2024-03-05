@@ -16,6 +16,9 @@ function FormContent({
   }, [userData]);
 
   const submitForm = () => {
+    // Cannot submit form it user didn't put anything into income input
+    // User input 0 would be string '0'
+    if (currentStep === 1 && localData.income === 0) return;
     updateUserData(new User(localData));
   };
 

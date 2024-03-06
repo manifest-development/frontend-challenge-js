@@ -7,7 +7,9 @@ const CreateProviderValue = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const updateFormStep = (updatedUserData) => {
-    if (updatedUserData.name && updatedUserData.income) {
+    if (updatedUserData.name
+        && typeof updatedUserData.income === 'number'
+        && updatedUserData.income >= 0) {
       setFormStep(2);
     }
     if (updatedUserData.education) {

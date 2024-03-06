@@ -3,13 +3,15 @@ import convertNumber from '../utils/convertNumber';
 export class User {
   name = '';
 
-  income = 0;
+  income = null;
 
   education = '';
 
   constructor(params) {
     this.name = params ? params.name ? params.name : '' : '';
-    this.income = params ? params.income ? convertNumber(params.income) : 0 : 0;
+    this.income = params ? params.income !== null && params.income >= 0
+      ? convertNumber(params.income) : null : null;
+
     this.education = params ? params.education : '';
   }
 }

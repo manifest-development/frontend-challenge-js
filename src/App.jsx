@@ -12,19 +12,21 @@ function App() {
     updateUserData,
     confirmForm,
     backToPreviousStep,
+    backToFirstStep,
     isLoading,
   } = useContext(FormContext);
 
   return (
     <div className="app">
       {isLoading && <FullPageLoader />}
-      <FormNavBar currentStep={formStep} />
+      {formStep <= 3 && <FormNavBar currentStep={formStep} />}
       <FormContent
         currentStep={formStep}
         updateUserData={updateUserData}
         userData={userData}
         confirmForm={confirmForm}
         backToPreviousStep={backToPreviousStep}
+        backToFirstStep={backToFirstStep}
       />
     </div>
   );

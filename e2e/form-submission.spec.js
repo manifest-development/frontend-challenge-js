@@ -52,9 +52,8 @@ test('Demo page is loaded', async ({ page }) => {
   await confirmButton.click();
 
   console.log('Complete form confirmation page');
-  // ADD Form Thank you page test here
-
-  // Back to form step 1 and form should be reset
+  const submitAnotherResponseButton = await page.locator('#form-submit-another-button');
+  await submitAnotherResponseButton.click();
   await page.waitForTimeout(3000);
   const form1Input = await page.locator('#input-name');
   const nameInputValie = await form1Input.inputValue();

@@ -7,6 +7,9 @@ function FormStepItem({ active, done, children }) {
 }
 
 function FormNavBar({ currentStep }) {
+  if (currentStep === 4) {
+    return null;
+  }
   return (
     <Styled.FormNavBar>
       <Container>

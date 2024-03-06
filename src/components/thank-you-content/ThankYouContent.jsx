@@ -14,13 +14,13 @@ function ThankYouContent({ userName, resetForm }) {
 
   return (
     <Container>
-      <Styled.ContentDiv>
+      <Styled.ContentDiv id="thank-you-page">
         <Flex flexDirection="row" justifyContent="center">
-          <Styled.Div id="thank-you-message">
+          <Styled.Div>
             <Styled.ChatContainer>
-              <Avatar src={katiePhoto} alt="Picture of Katie" />
+              <Avatar src={katiePhoto} alt="Picture of Katie" id="thank-you-avatar" />
               <Message>
-                <Styled.MessageText>
+                <Styled.MessageText id="thank-you-text">
                   Hi,
                   {' '}
                   {userName || 'Person'}
@@ -29,7 +29,7 @@ function ThankYouContent({ userName, resetForm }) {
                 </Styled.MessageText>
               </Message>
             </Styled.ChatContainer>
-            <Button onClick={handleSubmitAnother} id="ty-submit-another">SUBMIT ANOTHER</Button>
+            <Button onClick={handleSubmitAnother} id="thank-you-submit-another">SUBMIT ANOTHER</Button>
           </Styled.Div>
         </Flex>
       </Styled.ContentDiv>

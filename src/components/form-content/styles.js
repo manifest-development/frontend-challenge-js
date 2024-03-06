@@ -32,3 +32,15 @@ export const LineParagraph = styled.p`
     font-weight: 600;
   }
 `;
+
+export const SpeechBox = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #a3bea3;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  position: relative;
+  max-width: 600px; /* Adjust the width as necessary */
+`;

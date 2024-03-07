@@ -102,17 +102,7 @@ function FormContent({
           >
             {/* <Styled.FormHeading>Thank You for Registering</Styled.FormHeading> */}
             <Flex flexDirection="row" id="thankyou-page" justifyContent="center">
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                marginBottom: '20px',
-                textAlign: 'center',
-                marginRight: '20px',
-              }}
-              >
-                <img src={ThankYouImage} alt=" " style={{ maxWidth: '50px', height: 'auto' }} />
-              </div>
+              <img src={ThankYouImage} alt=" " style={{ maxWidth: '50px', height: 'auto', marginRight: '20px' }} />
               <div style={{
                 backgroundColor: '#7B876D', padding: '10px', borderRadius: '20px', opacity: '.8', color: 'white', marginBottom: '20px', width: '80%',
               }}

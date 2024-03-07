@@ -1,5 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { desktopBreakpoint } from '../../constants';
+
+const enlargeAnimation = keyframes`
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+`;
 
 export const FormContentDiv = styled.div`
   display: flex;
@@ -41,6 +50,8 @@ export const ProfilePic = styled.img`
   width: 60px;
   min-width: 60px;
   min-height: 60px;
+
+  animation: ${enlargeAnimation} 1s ease;
 `;
 
 export const Message = styled.h3`
@@ -58,6 +69,7 @@ export const MessageBubble = styled.div`
   background-color: #989E8D;
   border-radius: 30px;
   padding: 15px 15px 10px 15px;
+  animation: ${enlargeAnimation} 1s ease;
 `;
 
 export const MessageDiv = styled.div`

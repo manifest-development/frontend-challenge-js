@@ -1,4 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { desktopBreakpoint } from '../../constants';
+
+const enlargeAnimation = keyframes`
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+`;
 
 export const FormContentDiv = styled.div`
   display: flex;
@@ -30,5 +40,47 @@ export const LineParagraph = styled.p`
   strong {
     margin-left: 20px;
     font-weight: 600;
+  }
+`;
+
+export const ProfilePic = styled.img`
+  border-radius: 50%;
+
+  height: 60px;
+  width: 60px;
+  min-width: 60px;
+  min-height: 60px;
+
+  animation: ${enlargeAnimation} 1s ease;
+`;
+
+export const Message = styled.h3`
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: left;
+`;
+
+export const MessageBubble = styled.div`
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  color: #FFFFFF;
+  background-color: #989E8D;
+  border-radius: 30px;
+  padding: 15px 15px 10px 15px;
+  animation: ${enlargeAnimation} 1s ease;
+`;
+
+export const MessageDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 80px;
+  @media screen and (min-width: ${desktopBreakpoint}px){
+    flex-direction: row;
+    padding-bottom: 40px;
+    align-items: end;
   }
 `;

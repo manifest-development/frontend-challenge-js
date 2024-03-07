@@ -18,4 +18,18 @@ margin-bottom: 10px;
 background: ${(props) => (props.$invert ? 'transparent' : buttonPrimaryColor)};
 border: 2px solid ${buttonPrimaryColor};
 color: ${(props) => (props.$invert ? buttonPrimaryColor : 'white')};
+
+box-shadow: 0 9px #999;
+
+&:hover {
+    background-color: green;
+    color: white;
+}
+
+&:active {
+    background-color: green;
+    color: white;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
 `;

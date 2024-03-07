@@ -32,3 +32,17 @@ export const LineParagraph = styled.p`
     font-weight: 600;
   }
 `;
+
+// export const Container = styled.div`
+//   display: 'flex',
+
+//   @media (max-width: 768px) {
+//     flex-direction: row;
+//     justifyContent="center"
+//     width: 80%
+//   }
+// `;
+
+// export const mediaResp = styled.div.attrs(props => ({
+//   id: props.id || 'thankyou-image-flex',
+// }))`

@@ -108,9 +108,10 @@ function FormContent({
                 alignItems: 'center',
                 marginBottom: '20px',
                 textAlign: 'center',
+                marginRight: '20px',
               }}
               >
-                <img src={ThankYouImage} alt=" " style={{ maxWidth: '50px', height: 'auto', marginRight: '20px' }} />
+                <img src={ThankYouImage} alt=" " style={{ maxWidth: '50px', height: 'auto' }} />
               </div>
               <div style={{
                 backgroundColor: '#7B876D', padding: '10px', borderRadius: '20px', opacity: '.8', color: 'white', marginBottom: '20px', width: '80%',
@@ -123,6 +124,7 @@ function FormContent({
                 thank you for submitting the form.
                 We will check and get back to you within 2 business days.
               </div>
+              {/* </Container> */}
             </Flex>
             <Button onClick={submitAnother} id="form-submit-another-button">Confirm</Button>
           </Flex>

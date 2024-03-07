@@ -9,7 +9,7 @@ export class User {
 
   constructor(params) {
     this.name = params ? params.name ? params.name : '' : '';
-    this.income = params ? params.income >= 0 ? convertNumber(params.income) : null : null;;
+    this.income = params ? params.income >= 0 ? convertNumber(params.income) : null : null;
     this.education = params ? params.education : '';
   }
 }

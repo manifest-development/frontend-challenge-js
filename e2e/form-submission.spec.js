@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 const testName = 'User A';
 const testIncome = '40000';
 const testEducation = 'High school or equivalent';
+const testMessage = `Hi, ${testName}, thank you for submitting the form. We will check and get back to you within 2 business days.`
 
 test('Demo page is loaded', async ({ page }) => {
   await page.goto('http://localhost:3000');
@@ -53,6 +54,21 @@ test('Demo page is loaded', async ({ page }) => {
 
   console.log('Complete form confirmation page');
   // ADD Form Thank you page test here
+  console.log('Start form thank you page');
+
+  const thankYouPage = await page.locator('#thank-you-page');
+  await expect(thankYouPage).toBeInViewport();
+
+  const profilePic = await page.locator('#message-profile-pic');
+  await expect(profilePic).toBeInViewport();
+
+  const message = await page.locator('#thank-you-message');
+  await expect(message).toContainText(testMessage);
+
+  const resetFormButton = await page.locator('#reset-form-button');
+  await resetFormButton.click();
+
+  console.log('End form thank you page');
 
   // Back to form step 1 and form should be reset
   await page.waitForTimeout(3000);

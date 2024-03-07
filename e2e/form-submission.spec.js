@@ -55,7 +55,9 @@ test('Demo page is loaded', async ({ page }) => {
   // ADD Form Thank you page test here
   console.log('Start form Thannk you page');
 
-  // form-submit-another-button
+  const thankyou = await page.locator('#thankyou-page')
+  await expect(thankyou).toBeInViewport();
+
   const submitThankyou = await page.locator('#form-submit-another-button')
   await expect(submitThankyou).toBeInViewport();
   await submitThankyou.click();

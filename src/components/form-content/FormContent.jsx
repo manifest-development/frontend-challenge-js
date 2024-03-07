@@ -93,34 +93,39 @@ function FormContent({
             <Button onClick={confirmForm} id="form-confirmation-button">Confirm</Button>
           </Flex>
         ) : currentStep === 4 && (
-          <div style={{
-            display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh:',
-          }}
+          <Flex
+            flexDirection="column"
+            justifyContent="center"
+            style={{
+              fontFamily: 'inherit', fontSize: '24px', lineHeight: '36px', width: '80%',
+            }}
           >
-            <Container id="submitAgain-page" style={{ position: 'relavtive' }}>
-              <Styled.LineParagraph style={{
-                display: 'flex', alignItems: 'flex-end', color: 'white', fontFamily: 'inherit', fontSize: '20px', lineHeight: '36px',
+            {/* <Styled.FormHeading>Thank You for Registering</Styled.FormHeading> */}
+            <Flex flexDirection="row" id="thankyou-page" justifyContent="center">
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                marginBottom: '20px',
+                textAlign: 'center',
               }}
               >
-                <div style={{ marginRight: '20px' }}>
-                  <img src={ThankYouImage} style={{ width: '50px', height: 'auto' }} alt="" />
-                </div>
-                <div style={{
-                  backgroundColor: '#7B876D', padding: '10px', borderRadius: '20px', opacity: '.8',
-                }}
-                >
-                  Hi,
-                  {' '}
-                  {localData.name}
-                  {' '}
-                  thank you for submitting the form.
-                  We will check and get back to you within 2 business days.
-                </div>
-              </Styled.LineParagraph>
-
-              <Button onClick={submitAnother} id="form-submit-another-button" style={{ marginTop: '50px' }}>SUBMIT ANOTHER</Button>
-            </Container>
-          </div>
+                <img src={ThankYouImage} alt=" " style={{ maxWidth: '50px', height: 'auto', marginRight: '20px' }} />
+              </div>
+              <div style={{
+                backgroundColor: '#7B876D', padding: '10px', borderRadius: '20px', opacity: '.8', color: 'white', marginBottom: '20px', width: '80%',
+              }}
+              >
+                Hi,
+                {' '}
+                {localData.name}
+                {' '}
+                thank you for submitting the form.
+                We will check and get back to you within 2 business days.
+              </div>
+            </Flex>
+            <Button onClick={submitAnother} id="form-submit-another-button">Confirm</Button>
+          </Flex>
         )}
       </Styled.FormContentDiv>
     </Container>

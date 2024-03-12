@@ -42,6 +42,13 @@ const CreateProviderValue = () => {
     saveAndResetData();
   };
 
+  const resetDataAfterThankYou = async () => {
+    // THE FOLLOWING LINE IS USED FOR DEBUGGING EXERCISE 2
+    // console.log('resetting data after thank you');
+    setUserData(new User());
+    setFormStep(1);
+  };
+
   const backToPreviousStep = () => {
     setFormStep((prev) => prev - 1);
   };
@@ -54,6 +61,7 @@ const CreateProviderValue = () => {
     confirmForm,
     backToPreviousStep,
     isLoading,
+    resetDataAfterThankYou,
   };
 };
 

@@ -8,7 +8,7 @@ import * as Styled from './styles';
 import katiePNG from '../../assets/katie.png';
 
 function FormContent({
-  currentStep, updateUserData, userData, confirmForm, backToPreviousStep,
+  currentStep, updateUserData, userData, confirmForm, backToPreviousStep, resetDataAfterThankYou,
 }) {
   const [localData, setLocalData] = useState(userData);
 
@@ -99,12 +99,12 @@ function FormContent({
                 <img src={katiePNG} alt="profile headshot of our admin" style={{ width: '60px', height: '60px', objectFit: 'cover' }} />
                 <Styled.ThankYouMessageDiv>
                   Hi,
-                  {`${localData.name}`}
+                  {` ${localData.name} `}
                   , thank you for submitting the form.
                   We will check and get back to you within 2 business days.
                 </Styled.ThankYouMessageDiv>
               </div>
-              <button type="submit" id="thank-you-submit">
+              <button onClick={resetDataAfterThankYou} type="submit" id="thank-you-submit">
                 SUBMIT ANOTHER
               </button>
             </Flex>

@@ -32,3 +32,35 @@ export const LineParagraph = styled.p`
     font-weight: 600;
   }
 `;
+
+export const ThankYouFlex = styled.div`
+  display: flex;
+  flex-direction: row;
+  column-gap: 31px;
+  align-items: center;
+  margin-bottom: 50px;
+`;
+
+export const ThankYouMessageDiv = styled.div`
+  width: 488px;
+  height: 117px;
+  background-color: #989E8D;
+  border-radius: 30px;
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 24px;
+  padding: 12px 16px 15px 16px;
+`;
+
+export const ThankYouSubmit = styled.button`
+  width: 580px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #7B876D;
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 20px;
+  text-warp: nowrap;
+  padding: 5px 199px;
+`;

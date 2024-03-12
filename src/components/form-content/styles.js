@@ -43,7 +43,7 @@ export const LineParagraph = styled.p`
 // `;
 
 export const ThankYouMessageDiv = styled.div`
-  width: 80%;
+  width: 100%;
   background-color: #989E8D;
   border-radius: 30px;
   color: #FFFFFF;

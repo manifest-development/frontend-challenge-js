@@ -97,12 +97,12 @@ function FormContent({
             <Flex flexDirection="column" justifyContent="center">
               <div id="thank-you-flex">
                 <img src={katiePNG} alt="profile headshot of our admin" style={{ width: '60px', height: '60px', objectFit: 'cover' }} />
-                <Styled.ThankYouMessageDiv>
+                <div id="thank-you-message">
                   Hi,
-                  {` ${localData.name} `}
+                  {`\u00A0${localData.name}`}
                   , thank you for submitting the form.
                   We will check and get back to you within 2 business days.
-                </Styled.ThankYouMessageDiv>
+                </div>
               </div>
               <button onClick={resetDataAfterThankYou} type="submit" id="thank-you-submit">
                 SUBMIT ANOTHER

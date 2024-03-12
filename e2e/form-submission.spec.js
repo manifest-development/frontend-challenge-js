@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 const testName = 'User A';
 const testIncome = '40000';
 const testEducation = 'High school or equivalent';
+const testThankYou = `Hi, ${testName}, thank you for submitting the form. We will check and get back to you within 2 business days.`;
 
 test('Demo page is loaded', async ({ page }) => {
   await page.goto('http://localhost:3000');
@@ -53,6 +54,16 @@ test('Demo page is loaded', async ({ page }) => {
 
   console.log('Complete form confirmation page');
   // ADD Form Thank you page test here
+  console.log('Start form thank you page');
+  const thankYouPage = await page.locator('#thank-you-flex');
+  await expect(thankYouPage).toBeInViewport();
+
+  const thankYouMessage = await page.locator('#thank-you-message');
+  await expect(thankYouMessage).toContainText(testThankYou);
+
+  const thankYouButton = await page.locator('#thank-you-submit');
+  await thankYouButton.click();
+  console.log('Complete Thank you form page');
 
   // Back to form step 1 and form should be reset
   await page.waitForTimeout(3000);

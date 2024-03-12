@@ -95,7 +95,7 @@ function FormContent({
         ) : (
           currentStep === 4 && (
             <Flex flexDirection="column" justifyContent="center">
-              <Styled.ThankYouFlex>
+              <div id="thank-you-flex">
                 <img src={katiePNG} alt="profile headshot of our admin" style={{ width: '60px', height: '60px', objectFit: 'cover' }} />
                 <Styled.ThankYouMessageDiv>
                   Hi,
@@ -103,10 +103,10 @@ function FormContent({
                   , thank you for submitting the form.
                   We will check and get back to you within 2 business days.
                 </Styled.ThankYouMessageDiv>
-              </Styled.ThankYouFlex>
-              <Styled.ThankYouSubmit>
+              </div>
+              <button type="submit" id="thank-you-submit">
                 SUBMIT ANOTHER
-              </Styled.ThankYouSubmit>
+              </button>
             </Flex>
           )
         )}

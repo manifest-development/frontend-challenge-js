@@ -33,17 +33,17 @@ export const LineParagraph = styled.p`
   }
 `;
 
-export const ThankYouFlex = styled.div`
-  display: flex;
-  flex-direction: row;
-  column-gap: 31px;
-  align-items: center;
-  margin-bottom: 50px;
-`;
+// export const ThankYouFlex = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   column-gap: 31px;
+//   align-items: center;
+//   margin-bottom: 50px;
+
+// `;
 
 export const ThankYouMessageDiv = styled.div`
-  width: 488px;
-  height: 117px;
+  width: 80%;
   background-color: #989E8D;
   border-radius: 30px;
   color: #FFFFFF;
@@ -52,15 +52,14 @@ export const ThankYouMessageDiv = styled.div`
   padding: 12px 16px 15px 16px;
 `;
 
-export const ThankYouSubmit = styled.button`
-  width: 580px;
-  height: 40px;
-  border-radius: 10px;
-  border: none;
-  background-color: #7B876D;
-  color: #FFFFFF;
-  font-weight: 400;
-  font-size: 20px;
-  text-warp: nowrap;
-  padding: 5px 199px;
-`;
+// export const ThankYouSubmit = styled.button`
+//   width: 580px;
+//   height: 40px;
+//   border-radius: 10px;
+//   border: none;
+//   background-color: #7B876D;
+//   color: #FFFFFF;
+//   font-weight: 400;
+//   font-size: 20px;
+//   padding: 5px 199px;
+// `;

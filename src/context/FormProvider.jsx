@@ -7,7 +7,9 @@ const CreateProviderValue = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const updateFormStep = (updatedUserData) => {
-    if (updatedUserData.name && updatedUserData.income) {
+    // THE FOLLOWING LINES ARE USED FOR EXERCISE 1 DEBUGGING
+    // console.log(typeof updatedUserData.income);
+    if (updatedUserData.name && JSON.stringify(updatedUserData.income)) {
       setFormStep(2);
     }
     if (updatedUserData.education) {
